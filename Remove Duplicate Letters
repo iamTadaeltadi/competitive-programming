@@ -1,0 +1,27 @@
+class Solution:
+    def removeDuplicateLetters(self, s: str) -> str:
+        x = []
+        q = 1
+        for i in s:
+            if i in s[q:] and i not in x:
+                r=q
+                for j in s[q:]:
+                    if ord(i) > ord(j) and j not in x:
+                        break
+                    elif ord(i) > ord(j) and j in x:
+                        pass
+                    elif s[r:].count(j) == 1 and ord(i) < ord(j) and j not in x :
+                        x.append(i)
+                        break
+                    else:
+                        if s.index(j) == len(s) - 1:
+                            x.append(i)
+                        else:
+                            pass
+                    r+=1
+            elif i in x:
+                pass
+            else:
+                x.append(i)
+            q += 1
+        return "".join(x)
