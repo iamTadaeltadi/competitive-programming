@@ -7,8 +7,24 @@ class Solution(object):
         :type n: int
         :rtype: None Do not return anything, modify nums1 in-place instead.
         """
-        for i in range(len(nums2)):
-            nums1[m+i] = nums2[i]
-        nums1.sort()
+        store = []
+        l , r = 0 , 0
+        length = min(m,n)
+        while l < m and r < n:
+            if nums1[l] < nums2[r]:
+                store.append(nums1[l])
+                l += 1
+            else:
+                store.append(nums2[r])
+                r += 1
+        while l < m:
+            store.append(nums1[l])
+            l += 1
+        while r < n:
+            store.append(nums2[r])
+            r += 1
+        for i in range(len(store)):
+            nums1[i] = store[i]
+        
         
         
