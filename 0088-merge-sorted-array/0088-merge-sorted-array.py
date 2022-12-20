@@ -9,7 +9,6 @@ class Solution(object):
         """
         store = []
         l , r = 0 , 0
-        length = min(m,n)
         while l < m and r < n:
             if nums1[l] < nums2[r]:
                 store.append(nums1[l])
