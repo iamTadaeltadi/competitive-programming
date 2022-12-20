@@ -7,23 +7,27 @@ class Solution(object):
         :type n: int
         :rtype: None Do not return anything, modify nums1 in-place instead.
         """
-        store = []
-        l , r = 0 , 0
-        while l < m and r < n:
-            if nums1[l] < nums2[r]:
-                store.append(nums1[l])
-                l += 1
+        l , r = m - 1 , n - 1
+        index = len(nums1)-1
+        while l >= 0 and r >= 0:
+            if nums1[l] >= nums2[r]:
+                nums1[index] = nums1[l]
+                l -= 1
             else:
-                store.append(nums2[r])
-                r += 1
-        while l < m:
-            store.append(nums1[l])
-            l += 1
-        while r < n:
-            store.append(nums2[r])
-            r += 1
-        for i in range(len(store)):
-            nums1[i] = store[i]
+                nums1[index] = nums2[r]
+                r -= 1
+            index -= 1
+            
+        while l >= 0 and r < 0 :
+                nums1[index] = nums1[l]
+                l -= 1
+                index -= 1
+        while r >= 0 and l < 0 :
+                nums1[index] = nums2[r]
+                r -= 1
+                index -= 1
         
+                
+                
         
-        
+            
