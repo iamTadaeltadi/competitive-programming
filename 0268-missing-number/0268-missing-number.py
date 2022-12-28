@@ -4,9 +4,13 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        x=set(nums)
-        for i in range(len(nums)+1):
-            if i not in x:
-                return i
+        summ=sum(nums)
+        
+        n=len(nums)
+        sum_org=((n+1)*n)/2
+        return sum_org-summ
+        
             
+            
+      
             
