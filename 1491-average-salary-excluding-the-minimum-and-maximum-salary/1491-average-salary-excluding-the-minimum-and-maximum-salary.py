@@ -4,4 +4,8 @@ class Solution(object):
         :type salary: List[int]
         :rtype: float
         """
-        return float((sum(salary)-(max(salary)+min(salary))))/(len(salary)-2)
+        sumof=sum(salary)
+        max_val=(max(salary))
+        min_val=min(salary)
+        result =float(sumof-(max_val+min_val))/(len(salary)-2)
+        return result
