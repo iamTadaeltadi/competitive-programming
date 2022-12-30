@@ -13,8 +13,9 @@ class Solution(object):
                 x.append(d[s[l:r+1]])
                 l=r
                 r+=3
+                
             elif s[l]!="#":
-                print(d[s[l]])
+
                 x.append(d[s[l]])
                 r+=1
             l+=1
