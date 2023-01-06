@@ -12,6 +12,6 @@ class Solution(object):
         for i,j in operations:
             nums[dd[i]]=j
             dd[j]=dd[i]
-            del dd[i]
+            
         return nums
         
