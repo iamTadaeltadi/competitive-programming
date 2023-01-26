@@ -7,18 +7,26 @@ class Solution(object):
         [1,2,3,3,4,5]
         
         """
-        skill.sort()
-        l=0
-        r=len(skill)-1
-        pair=skill[l] +skill[r]
-        tot=0
-        while l<r:
-            if pair !=skill[l]+skill[r]:
-                return -1
-            tot+=skill[l]*skill[r]
-            l+=1
-            r-=1
-        return tot
+        d=defaultdict(int)
+        target=min(skill)+max(skill)
+        tot =0
+        count=0
+        for i in skill:
+            j=target-i
+            if d[j] ==0:
+                d[i]+=1
+            else:
+                count+=2
+                d[j]-=1
+                tot+=i*j
+        if count==len(skill):
+            return tot
+        return -1
+                
+
+                
+        
+        
             
             
             
