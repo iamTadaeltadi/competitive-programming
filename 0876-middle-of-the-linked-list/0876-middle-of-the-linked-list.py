@@ -9,16 +9,11 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        x=head
-        length=1
-        while head:
-            length+=1
-            head=head.next
-        n=(length-1)//2+1
-        length=1
-        while x:
-            if length==n:
-                return x
-            x=x.next
-            length+=1
+        fast=head
+        slow=head
+        while fast and fast.next:
+            slow=slow.next
+            fast=fast=fast.next.next
+        return slow
+      
         
