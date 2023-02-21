@@ -10,8 +10,7 @@ class Solution(object):
         :type l2: ListNode
         :rtype: ListNode
         """
-        f=l1
-        s=l2
+       
         val=0
         remainder=0
         res=ListNode(None)
