@@ -1,16 +1,18 @@
 class Solution:
     def mySqrt(self, x: int) -> int:
-        high=x
-        low=0
-        while low <=high:
+        
+        def rec(high,low):
             mid=low +(high-low)//2
             val=mid**2
+        
+            if low >high:
+                return low-1
             if val>x:
-                high=mid-1
+                return rec(mid-1,low)
             elif val<x:
-                low=mid+1
+                return rec(high,mid+1)
             else:
-                
                 return mid
-        return low-1
+        return rec(x,0)
+        
             
