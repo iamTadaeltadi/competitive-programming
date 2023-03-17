@@ -5,17 +5,17 @@ class TreeNode:
         self.right = right
 class Solution:
     def findTilt(self, root: Optional[TreeNode]) -> int:
-        total=[]
+        total=0
         def tlit(root):
+            nonlocal total
             if not root:
                 return 0
             leftChild=tlit(root.left)
             rightChild=tlit(root.right)
-            total.append(abs(rightChild-leftChild))
+            total+=(abs(rightChild-leftChild))
             return rightChild+leftChild+root.val
         tlit(root)
-        print(total)
      
-        return sum(total)
+        return (total)
             
             
