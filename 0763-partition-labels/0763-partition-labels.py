@@ -1,22 +1,18 @@
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
-        l,r=0,0 
-        x=[]
-        z=[]
-        while l<len(s):
-            if s[l] in s[r:]:
-                x.append(s[r])
-                r+=1
-            else:
-                s[l] not in s[r:]
-                l+=1
+        count=Counter(s)
+        curr={}
+        res=[]
+        l=0
+        for right in range(len(s)):
+            count[s[right]]-=1
+            curr[s[right]]=count[s[right]]
+            if (all(item == 0 for item in curr.values())):
+                res.append(right-l+1)
+                l=right+1
+        return res
             
-            if l==r:
-                z.append(len(x))
-                x=[] 
+                
             
-        return z
-            
-            
-            
+        
             
