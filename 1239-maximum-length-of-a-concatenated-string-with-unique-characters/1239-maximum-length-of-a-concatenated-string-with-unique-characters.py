@@ -2,32 +2,31 @@ class Solution:
     def maxLength(self, arr) -> int:
         def isUniqueChars(string):
             freq = Counter(string)
-            if len(freq) == len(string):
+            
+            if(len(freq) == len(string)):
                 return True
             else:
                 return False
+        res=0
         
-        def cocatnate(index, curr):
+        def cocatnate(index,curr):
+            cocatnatedStr="".join(curr)
+            
             nonlocal res
             
-            # Check if adding the current string results in unique characters
-            if not isUniqueChars(curr + arr[index]):
-                return
+            if not isUniqueChars(cocatnatedStr):
+                return 
+            print(cocatnatedStr,curr)
+            res=max(len(cocatnatedStr),res)
+            if res==len("".join(arr)):
+                return 
             
-            # Update result if current concatenation has unique characters
-            res = max(res, len(curr + arr[index]))
+            for i in range(index,len(arr)):
+                curr.append(arr[i])
+                cocatnate(i+1,curr)
+                curr.pop()
             
-            # If all strings have been processed, return
-            
-            
-            # Recursively concatenate remaining strings
-            for i in range(index + 1, len(arr)):
-                cocatnate(i, curr + arr[index])
-        
-        res = 0
-        for i in range(len(arr)):
-            cocatnate(i, "")
-        
+        cocatnate(0,[])
         return res
             
             
