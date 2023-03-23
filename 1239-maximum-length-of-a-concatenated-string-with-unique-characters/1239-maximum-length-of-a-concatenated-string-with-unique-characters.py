@@ -18,8 +18,7 @@ class Solution:
             res = max(res, len(curr + arr[index]))
             
             # If all strings have been processed, return
-            if index == len(arr) - 1:
-                return
+            
             
             # Recursively concatenate remaining strings
             for i in range(index + 1, len(arr)):
