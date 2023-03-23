@@ -6,9 +6,7 @@ class Solution:
             if len(curr) == k:
                 res.append([i for i in curr])
                 return 
-            if index > n:
-                return
-            
+          
             for i in range(index,n+1):
                 curr.append(i)
                 combine(i+1,curr)
