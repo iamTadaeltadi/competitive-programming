@@ -4,21 +4,22 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
 class Solution:
     def tree2str(self, root: Optional[TreeNode]) -> str:
-        def solve(curNode):
-            if not curNode:
-                return ''
+        def map(root):
+            if not root:
+                return "()"
 
-            subString = str(curNode.val)
-            #If curNode has no children
-            if not curNode.left and not curNode.right:
-                return subString
-
-            subString += '(' + solve(curNode.left) + ')'
-            if curNode.right:
-                subString += '(' + solve(curNode.right) + ')'
-
-            return subString
-
-        return solve(root)
+            if root and not root.left and not root.right:
+                return f"({root.val})"
+           
+            l = map(root.left)
+            r = map(root.right)
+            if r=="()":
+                return "("+str(root.val) + l +")"
+            else:
+                return "("+str(root.val) + l + r  +")"
+               
+        
+        return map(root)[1:-1]
